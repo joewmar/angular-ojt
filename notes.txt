@@ -1,0 +1,54 @@
+Angualar JS
+	- MVC (Model View Controller) style Javascript Framework
+	- 2 ways data binding
+    - templating
+    - DOM interaction
+    - filters
+    - directives
+    - View and Routing
+    - 
+Angualar JS: Model
+    - Think of the model as data
+    - JSON, database data etc.
+
+Angualar JS: View
+    - Used to display content & data to a user in a browser
+    - HTML
+    - Use expression to insert data into View
+
+Angualar JS: Controller
+    - Control the functionality of our views
+    - performas the interaction between our model and our views
+    - Different controllers for different areas in our application
+
+Downloading AngularJS
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js" integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+2-Way Data Binding
+    ng-app -- allow angular js to controll dependes where you declare
+    ng-model -- for data binding
+    {{var}} -- display your data inputted
+
+Introduction to Directives
+    - Directives are markers on the DOM element which tell AngularJS to attach a specified behavior to that DOM element or even transform the DOM element with its children.
+    - ng-init == Directive is used to initialize AngularJS Application data.
+    
+Expression
+    - ng-init="numbers=[1,2,3]"
+    - {{numbers[0] * numbers[2]}}
+    - ng-init="names=['Juan', 'Helen','Mark']"
+
+ng-repeat directive
+    - ng-repeat directive --- repeats a set of HTML, a given number of times. The set of HTML will be repeated once per item in a collection.
+    - Like forearch array
+    - ng-reapet="value in array"
+
+Modules
+    - The module is a container for the different parts of an application. 
+    - var moduleName = angular.module('moduleName', [dependencies]);
+    - ng-app="moduleName"
+    - moduleName.config(function(), { Do before app runs});
+    - moduleName.run(function(), { Do during app runs});
+    - moduleName.controller(function(), { Controller Codes });
+
+
