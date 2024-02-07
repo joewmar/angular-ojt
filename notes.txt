@@ -88,6 +88,37 @@ Filters
     - <li ng-repeat="person in persons | orderBy: 'name' | filter: search">{{person.name}}</li>
     - <li ng-repeat="person in persons | orderBy: 'name' | filter: search">{{person.name}} - {{person.age | currency: 'P'}}</li>
 
+ng-include directive
+    - includes HTML from an external file.
+    - this is way to reduce repeat component or code
+    - create HTML file named "header"
+    - <ng-include src="'header.html'"></ng-include>
+    - <header ng-include="'header.html'"></header>
+
+ng-show directive
+    - ng-show directive
+    - {
+         name: 'Joemar',
+         rate: 100,
+         available: true
+      },
+    
+    - <li ng-repeat="person in persons | orderBy: 'name' | filter: search" ng-show="person.available">
+    - ng-hide="person.available"
+
+ng-click directive
+    - <button ng-click=""></button>
+    - <li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
+    - ng-click="order = 'rate'
+    - ng-click="scopeFunctionName(parameter)"
+    - 
+    - var removePerson = $scope.persons.indexOf(ninja);
+    - $scope.persons.splice(removePerson, 1);
+    - $scope.removePerson = function(ninja  ){
+
+
+
+
 
 
 

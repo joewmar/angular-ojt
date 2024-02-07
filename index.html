@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angular Try</title>
-    <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/content/style.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js" integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></head>
     <script src="app/app.js"></script>
 <body>
@@ -17,15 +17,24 @@
         <li ng-repeat="name in names">{{name}}</li>
     </ul> -->
     <!-- ----------------------------------------- -->
-    <div ng-controller="MyAppController">
-        <!-- <p>{{message}}</p> -->
-        <input type="text" ng-model="search">
-        <ul>
-            <li ng-repeat="name in names">{{name}}</li>
-            <li ng-repeat="person in persons | orderBy: 'name' | filter: search">
-                {{person.name}} - {{person.age | currency: 'P'}}
-            </li>
-        </ul>
+    <header ng-include="'header.html'"></header>
+    <!-- ----------------------------------------- -->
+    <div class="content">
+        <div ng-controller="MyAppController">
+            <!-- <p>{{message}}</p> -->
+            <button ng-click="order = 'name'">Order by Name</button>
+            <button ng-click="order = 'rate'">Order by Rate</button>
+            <input type="text" ng-model="search">
+            <ul>
+                <li ng-repeat="name in names">{{name}}</li>
+                <li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
+                    {{person.name}} - {{person.rate | currency: 'P '}}
+                    <div class="remove" ng-click="removePerson(person)">X</div>
+
+                </li>
+            </ul>
+        </div>
     </div>
+
 </body>
 </html>
