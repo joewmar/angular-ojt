@@ -40,8 +40,8 @@ Expression
 
 ng-repeat directive
     - ng-repeat directive --- repeats a set of HTML, a given number of times. The set of HTML will be repeated once per item in a collection.
-    - Like forearch array
-    - ng-reapet="value in array"
+    - Like looping - forearch array
+    - ng-reapet="value in arrays"
 
 Modules
     - The module is a container for the different parts of an application. 
@@ -50,5 +50,45 @@ Modules
     - moduleName.config(function(), { Do before app runs});
     - moduleName.run(function(), { Do during app runs});
     - moduleName.controller(function(), { Controller Codes });
+
+Controllers
+    - naming convention must always CamelCase
+    - module.controller("ControllerName",function())
+    - ng-controller="ControllerName"
+    - $scope is a child object that is used to bind the HTML(view) & Javascript(Controller) in a webpage. 
+    - myApp.controller("MyAppController",function($scope))
+    - $scope.HTMLVarName
+    - In HTML, {{HTMLVarName}}
+    - Different ways to put dependencies: myApp.controller("MyAppController", ['$scope', 'others', function($scope, others)])
+
+Filters
+    - Filters are used for formatting data displayed to the user. 
+    - $scope.names=[
+            {
+                name: 'Joemar',
+                status: 'Single',
+                age: 22,
+            },
+            {
+                name: 'Helen',
+                status: 'Single',
+                age: 19,
+
+            },
+            {
+                name: 'Edward',
+                status: 'Married',
+                age: 17,
+
+            },
+        ];
+    
+    - <li ng-repeat="person in persons">{{person.name}}</li>
+    - <li ng-repeat="person in persons | orderBy: 'name'">{{person.name}}</li>
+    - <li ng-repeat="person in persons | orderBy: 'name' | filter: search">{{person.name}}</li>
+    - <li ng-repeat="person in persons | orderBy: 'name' | filter: search">{{person.name}} - {{person.age | currency: 'P'}}</li>
+
+
+
 
 

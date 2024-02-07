@@ -8,12 +8,24 @@
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js" integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></head>
     <script src="app/app.js"></script>
-<body ng-init="names=['Juan', 'Helen','Mark']">
-    <input type="text" ng-model="name" placeholder="Enter your name!">
-    <p>My name is {{name}}</p>
-    <!-- <p>{{numbers[0] * numbers[2]}}</p> -->
+<body>
+    <!-- ng-init="names=['Juan', 'Helen']" -->
+    <!--<input type="text" ng-model="name" placeholder="Enter your name!">
+     <p>My name is {{name}}</p>
+    <p>{{numbers[0] * numbers[2]}}</p> 
     <ul>
         <li ng-repeat="name in names">{{name}}</li>
-    </ul>
+    </ul> -->
+    <!-- ----------------------------------------- -->
+    <div ng-controller="MyAppController">
+        <!-- <p>{{message}}</p> -->
+        <input type="text" ng-model="search">
+        <ul>
+            <li ng-repeat="name in names">{{name}}</li>
+            <li ng-repeat="person in persons | orderBy: 'name' | filter: search">
+                {{person.name}} - {{person.age | currency: 'P'}}
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
