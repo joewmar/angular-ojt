@@ -1,0 +1,20 @@
+<div class="content">
+    <!-- <p>{{message}}</p> -->
+    <button ng-click="order = 'name'">Order by Name</button>
+    <button ng-click="order = 'rate'">Order by Rate</button>
+    <input type="text" ng-model="search">
+    <ul>
+        <li ng-repeat="name in names">{{name}}</li>
+        <li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
+            <img ng-src="{{person.thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px;" ng-show="ninja.thumb">
+            <h3>{{person.name}} - {{person.rate | currency: 'P '}}</h3>
+            <div class="remove" ng-click="removePerson(person)">X</div>
+        </li>
+    </ul>
+    <!-- ng-submit directive -->
+    <form ng-submit="addPerson()">
+        <input type="text" placeholder="Name" ng-model="newperson.name" />
+        <input type="text" placeholder="Rate" ng-model="newperson.rate" />
+        <input type="submit" value="Add New" />
+    </form>
+</div>

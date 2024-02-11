@@ -114,7 +114,69 @@ ng-click directive
     - 
     - var removePerson = $scope.persons.indexOf(ninja);
     - $scope.persons.splice(removePerson, 1);
-    - $scope.removePerson = function(ninja  ){
+    - $scope.removePerson = function(ninja)
+
+ng-submit directive
+    - The ng-submit directive specifies a function to run when the form is submitted.
+    - <form ng-submit="function()">
+    - $scope.function() = function();
+
+ng-src directive
+    - The ng-src directive makes sure the image is not displayed wrong before AngularJS has evaluated the code.
+    - thumb: 'content/img/Joemar.jpg',
+    - ng-src="{{person.thumb}}"
+
+Views and Routes
+    -  angularjs is primarily used for single page applications that means when we click on a link it doesn't go to another page exactly it just requests a different view and then that view is placed in the content area right here so it's all going to become clearer
+    - create views folder and make file named "directory" and "home"
+    - <main ng-view>
+    - <script src="app/lib/angular-route.js"></script>
+    - var myApp = angular.module('myApp', ['ngRoute']);
+    - config() when you want to change configuration of a ngCore module which has already been written in angular.js 
+    - myApp.config(['$routeProvider', function($routeProvider)])
+    - $routeProvider.when(url, object{templateUrl, controller})
+    - templateUrl: 'directory',
+    - controller: 'ControllerName',
+    - otherwise()
+    - redirectTo: '/home',
+
+JSON and $http
+    - console.log(angular.toJson($scope.persons));
+    - myApp.controller("MyAppController", ['$scope', '$http' , function($scope, $http)])
+    - $http.get('URL/Path').succcess(function(data))
+    - $scope.persons = data;
+    - $http.get('URL/Path').then(function(response))
+    - $scope.persons = response.data;
+
+Custom Directives
+    - if you want to make function uniquely on your web application
+    - <name-directive></name-directive>
+    - myApp.directive('nameDirective', [function(){}]);
+    -  restrict: 'E',
+    - 'E' = can be used only as element
+    - 'A' = can be used only as an attribute
+    - 'C' = can be used only as a class attribute
+    - 'AEC' = can be used as an attribute or element or class
+    - <random-names names="persons"></random-names>
+    - names:'='
+    - templateUrl: 'views/random.html',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
