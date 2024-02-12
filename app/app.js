@@ -1,7 +1,9 @@
 var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
-myApp.config(['$routeProvider', function($routeProvider){
+myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     
+    $locationProvider.html5Mode(true);
+
     $routeProvider
     .when('/home', {
         templateUrl: 'views/home.html',
@@ -9,6 +11,11 @@ myApp.config(['$routeProvider', function($routeProvider){
     })
     .when('/contact', {
         templateUrl: 'views/contact.html',
+        controller: 'ContactController',
+    })
+    .when('/contact-success', {
+        templateUrl: 'views/contact-success.html',
+        controller: 'ContactController',
     })
     .when('/persons', {
         templateUrl: 'views/persons.html',
@@ -20,6 +27,7 @@ myApp.config(['$routeProvider', function($routeProvider){
 // myApp.runs(function(){
 
 // });
+// Custom directive
 myApp.directive('randomNames', [function(){
     return {
         restrict: 'EA',
@@ -36,6 +44,8 @@ myApp.directive('randomNames', [function(){
         },
     };
 }]);
+
+// Custom Controller
 myApp.controller("MyAppController", ['$scope', '$http' , function($scope, $http){
 
     $http.get('data/persons.json').then(function(response){
@@ -87,4 +97,10 @@ myApp.controller("MyAppController", ['$scope', '$http' , function($scope, $http)
     }
 
 
+}]);
+
+myApp.controller("ContactController", ['$scope', '$location', function($scope, $location){
+    $scope.sendMessage = function(){
+        $location.path('contact-success');
+    }
 }]);

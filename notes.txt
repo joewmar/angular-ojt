@@ -215,6 +215,31 @@ Form Validation
     - input[disabled="disabled"] 
     - cursor: not-allowed !important;
 
+Location Service
+    -  The $location in AngularJS basically uses a window.location service. The $location is used to read or change the URL in the browser
+    - Create html file for contact succcess
+    - $location.path('URL');
+
+Pretty URL's
+    - <li><a href="/">Home</a></li>
+    - $locationProvider.html5Mode(boolean); - . If boolean, sets html5Mode.enabled to value. If object, sets enabled , requireBase and rewriteLinks to respective values.
+    - <base href="/"> to make based url
+    - Note: Angular JS does handle the requests (When enter the url then enter)
+    - Resolve Request Error: Create .htaccess
+
+RewriteEngine On
+
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the request resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+
+
+
+
 
 
 
