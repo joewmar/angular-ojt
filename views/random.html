@@ -1,5 +1,6 @@
 <div style="text-align: center">
     <h4>{{title}}</h4>
+    <div ng-transclude></div>
     <img ng-src="{{persons[random].thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px;" ng-show="persons[random].thumb" />
     <h3>{{persons[random].name}}</h3>
 </div>

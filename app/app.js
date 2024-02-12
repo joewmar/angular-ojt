@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
 myApp.config(['$routeProvider', function($routeProvider){
     
@@ -6,6 +6,9 @@ myApp.config(['$routeProvider', function($routeProvider){
     .when('/home', {
         templateUrl: 'views/home.html',
         controller: 'MyAppController',
+    })
+    .when('/contact', {
+        templateUrl: 'views/contact.html',
     })
     .when('/persons', {
         templateUrl: 'views/persons.html',
@@ -26,6 +29,8 @@ myApp.directive('randomNames', [function(){
         },
         // template: '<img ng-src="{{persons[random].thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px;" ng-show="persons[random].thumb" /><h3>{{persons[random].name}}</h3>',
         templateUrl: 'views/random.html',
+        transclude: true,
+        replace: true,
         controller: function($scope){
             $scope.random = Math.floor(Math.random() * 4);
         },
@@ -77,6 +82,9 @@ myApp.controller("MyAppController", ['$scope', '$http' , function($scope, $http)
     // ];
     // console.log(angular.toJson($scope.persons));
 
+    $scope.removeAll = function(){
+        $scope.persons = [];
+    }
 
 
 }]);

@@ -3,7 +3,7 @@
     <button ng-click="order = 'name'">Order by Name</button>
     <button ng-click="order = 'rate'">Order by Rate</button>
     <input type="text" ng-model="search">
-    <ul>
+    <ul id="names-list">
         <li ng-repeat="name in names">{{name}}</li>
         <li ng-repeat="person in persons | orderBy: order | filter: search" ng-show="person.available">
             <img ng-src="{{person.thumb}}" style="margin: -12px 10px 0 0; float: left; width: 50px;" ng-show="ninja.thumb">
@@ -17,4 +17,5 @@
         <input type="text" placeholder="Rate" ng-model="newperson.rate" />
         <input type="submit" value="Add New" />
     </form>
+    <a href="" ng-click="removeAll()">Remove All Names</a>
 </div>

@@ -161,6 +161,68 @@ Custom Directives
     - names:'='
     - templateUrl: 'views/random.html',
 
+Transclude & Replace
+    - transclude is compile the content of the element and make it available to the directive
+    - transclude: true,
+    - <div ng-transclude></div>
+    - AngularJS Directive's replace option can be used to replace the container element itself by directive content.
+    - Replace: <random-names> to <div>
+
+Animations
+    - <script src="app/lib/angular-animate.js"></script>
+    - var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
+    - CSS: ng-enter 
+    - CSS: .ng-enter.ng-enter-active
+    - CSS: main.ng-enter
+    - CSS: main.ng-enter.ng-enter-active
+    - CSS: #id-name.ng-enter
+    - CSS: #id-name.ng-enter.ng-enter-active
+    - CSS: #id-name.ng-leave
+    - CSS: #id-name.ng-leave.ng-leave-active
+    - Animations Effect Stagger function provides cascading delay to animated elements.
+    - <a href="" ng-click="removeAll()">Remove All Names</a>
+    - $scope.removeAll = function()
+    - #names-list li.ng-leave-stagger 
+    - reccomend of Angular JS to put this = transition-duration: 0;
+
+Form Validation
+    - Create view/contact.html
+    - Create route for Contact
+    - ng-pristine means when form/input not used yet
+    - ng-dirty means when form/input has been used
+    - ng-untouched means when form/input not been touched
+    - ng-touched means when form/input has been touched
+    - ng-valid means when form/input is valid
+    - ng-invalid means when form/input is not valid
+    - <form name="contactForm" novalidate>
+    - ng-model="contact.name" 
+    - ng-required="true"
+    - input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty  
+    - ng-pristine = $pristine
+    - ng-dirty = $dirty
+    - ng-untouched = $untouched
+    - ng-touched = $touched
+    - ng-valid = $valid
+    - ng-invalid = $invalid
+    - $pristine - {{contactForm.name.$pristine}},
+    - $dirty - {{contactForm.name.$dirty}},
+    - $untouched - {{contactForm.name.$untouched}},
+    - $touched - {{contactForm.name.$touche}},
+    - $valid - {{contactForm.name.$valid}},
+    - $invalid - {{contactForm.name.$invalid}},
+    - <div ng-show="contactForm.name.$dirty && contactForm.name.$invalid">
+    - <input type="submit" value="Send" ng-disabled="contactForm.$invalid" />
+    - input[disabled="disabled"] 
+    - cursor: not-allowed !important;
+
+
+
+
+
+
+
+
+
 
 
 
